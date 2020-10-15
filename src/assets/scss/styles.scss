@@ -21,8 +21,28 @@ body {
 .inner-content {
     background-color: $secondary;
     border-radius: 20%;
-    padding: 7% 10% 7% 10%;
-    margin-bottom: 5%;
+    position: fixed;
+    top: 15%;
+    bottom: 5%;
+    overflow: scroll;
+
+    &::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+    }
+
+    .search-box {
+        width: 70%;
+        margin: 4% auto 4% auto;
+
+        input {
+            width: 100%;
+        }
+
+        .custom-control {
+            justify-content: flex-end;
+        }
+    }
 }
 
 .component-title {
@@ -32,51 +52,26 @@ body {
 
 .center-text {
     text-align: center;
-    margin-top: 2%;   
-    a{
-        text-decoration: none;
-        outline: none;
-        h1 {
-            @extend %center;
-            font-size: 500%;
-            color: $secondary;
-            transition: transform .2s;
-            &:hover {
-                transform: scale(1.2);
-            }
-        }
-    }    
-}
+    margin-top: 2%;
 
-.table-custom {
-    width: 100%;
-    border-collapse: collapse;    
-    -webkit-border-radius: 20%;
-       -moz-border-radius: 20%;
-            border-radius: 20%;
-};
-
-.btn-outline-primary {
-    color: $primary !important;
-    border-color: $primary !important;
-}
-
-.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active, .btn-outline-primary.active, .open > .dropdown-toggle.btn-primary {
-    border-color: $primary !important;
-    background-color: $primary !important;
-    box-shadow: none !important;
-    color: $secondary !important;
-}
-
-.btn-outline-primary:active {
-    color: $primary !important;
-	border-color: $primary !important;
+    h1 {
+        @extend %center;
+        font-size: 45px;
+        color: $secondary;
+        // transition: transform .2s;
+        // &:hover {
+        //     transform: scale(1.2);
+        // }
+    }
 }
 
 .round-table {
+    margin-top: 1%;
     border-collapse: collapse !important;
+    width: 100%;
 
     tbody {
+        overflow-y: auto;
         tr {
             cursor: pointer;
             transition: transform .2s;
@@ -89,33 +84,42 @@ body {
             }
 
             td {
+                &.td-2 {
+                    width: 8.66667%;
+                }
+
+                &.td-8 {
+                    width: 82.666667%;
+                }
+
                 img {
                     width:  100px;
                     height: 100px;
                     background-size: cover;
+                    margin: auto;
                 }
-            }
-        }
-    }
-}
 
-.middle-alignment {
-    display: -webkit-flexbox;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
+                .user-data {
+                    display: flex;
+                    flex-direction: column;
 
-    div {
-        div{
-            margin-bottom: 10%;
+                    .user-data-header {
+                        font-size: 25px;
+                        color: $name;
+                    }
 
-            button {
-                padding-top: 20%;
-                padding-bottom: 20%;
+                    .user-data-control {
+                        color: $text;
+                    }
+                }
+
+                .user-buttons {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    width: 100%;
+                    height: 100%;
+                }
             }
         }
     }
